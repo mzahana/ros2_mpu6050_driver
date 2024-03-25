@@ -176,7 +176,7 @@ double MPU6050Sensor::getAngularVelocityZ() const
 double MPU6050Sensor::convertRawGyroscopeData(int16_t gyro_raw) const
 {
   const double ang_vel_in_deg_per_s = static_cast<double>(gyro_raw) / GYRO_SENS_MAP.at(gyro_range_);
-  return ang_vel_in_deg_per_s;
+  return ang_vel_in_deg_per_s*DEG2RAD; // return in rad/s
 }
 
 double MPU6050Sensor::convertRawAccelerometerData(int16_t accel_raw) const

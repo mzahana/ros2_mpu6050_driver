@@ -73,6 +73,7 @@ class MPU6050Sensor {
   static constexpr int GYRO_CONFIG_SHIFT = 3;
   static constexpr int ACCEL_CONFIG_SHIFT = 3;
   static constexpr double GRAVITY = 9.81;
+  static constexpr double DEG2RAD = 0.017453292519943295;
   const std::array<int, 4> ACCEL_RANGES{2, 4, 8, 16};
   const std::array<int, 4> GYRO_RANGES{250, 500, 1000, 2000};
   const std::array<int, 7> DLPF_RANGES{260, 184, 94, 44, 21, 10, 5};
