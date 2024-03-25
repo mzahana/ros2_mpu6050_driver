@@ -33,7 +33,7 @@ MPU6050Driver::MPU6050Driver()
   // Create publisher
   publisher_ = this->create_publisher<sensor_msgs::msg::Imu>("imu", 10);
   std::chrono::duration<int64_t, std::milli> frequency =
-      1000ms / this->get_parameter("frequency").as_double();
+      1000ms / this->get_parameter("frequency").as_int();
   timer_ = this->create_wall_timer(frequency, std::bind(&MPU6050Driver::handleInput, this));
 }
 
@@ -71,7 +71,7 @@ void MPU6050Driver::declareParameters()
   this->declare_parameter<double>("accel_x_offset", 0.0);
   this->declare_parameter<double>("accel_y_offset", 0.0);
   this->declare_parameter<double>("accel_z_offset", 0.0);
-  this->declare_parameter<double>("frequency", 0.0);
+  this->declare_parameter<int>("frequency", 100);
 }
 
 int main(int argc, char* argv[])
