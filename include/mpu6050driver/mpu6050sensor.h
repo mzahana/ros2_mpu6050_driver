@@ -3,6 +3,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <array> 
 
 class MPU6050Sensor {
  public:
